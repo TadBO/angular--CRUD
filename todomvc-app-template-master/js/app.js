@@ -23,6 +23,14 @@
 			var index = $scope.todoList.indexOf(todo);
 			$scope.todoList.splice(index, 1);
         }
+        //修改数据以及当前状态的样式
+		$scope.editing = {};
+		$scope.updateTodo = function (todo) {
+            $scope.editing = todo;
+        }
+        $scope.saveTodo = function () {
+            $scope.editing = {};
+        }
     });
 
 })(window, angular);
