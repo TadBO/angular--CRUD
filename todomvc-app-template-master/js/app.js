@@ -2,7 +2,7 @@
 	//'use strict';
 
 	// Your starting point. Enjoy the ride!
-	var app = angular.module('todoApp', []);
+	var app = angular.module('todoApp', ['myFocus']);
 	app.controller('todoCtrl', ['$scope', '$filter', function ($scope, $filter) {
 		//确定数据为数组类型
 		$scope.todoList = [

@@ -32,13 +32,13 @@
 						<!--</div>-->
 						<!--<input class="edit" value="Create a TodoMVC template">-->
 					<!--</li>-->
-					<li ng-repeat="todo in todoList | filter : { status: status} track by $index" ng-class="{'completed': todo.status, 'editing': editing == todo}">
+					<li ng-repeat="todo in todoList | filter : { status: status} track by $index" ng-class="{'completed': todo.status, 'editing': editing == todo}" ng-dblclick="addFocus()">
 						<div class="view">
 							<input  class="toggle" type="checkbox" ng-model="todo.status">
 							<label ng-dblclick="updateTodo(todo)">{{ todo.text }}</label>
 							<button class="destroy" ng-click="deleteTodo(todo)"></button>
 						</div>
-						<input class="edit " value="Rule the web" ng-model="todo.text" ng-blur="saveTodo()">
+						<input class="edit " value="Rule the web" ng-model="todo.text" ng-blur="saveTodo()" set-focus>
 					</li>
 				</ul>
 			</section>
@@ -74,5 +74,6 @@
 		<!--<script src="node_modules/todomvc-common/base.js"></script>-->
 		<script src="node_modules/angular.js"></script>
 		<script src="js/app.js"></script>
+		<script src="js/setFocus.js"></script>
 	</body>
 </html>
