@@ -12,7 +12,12 @@
 			{text: 'angular', status: true}
 		];
 		//查看数据
-
+		//增加数据
+		$scope.newTodo = '';
+		$scope.addTodo = function () {
+			$scope.todoList.push({text: $scope.newTodo, status: false});
+            $scope.newTodo = '';
+        }
     });
 
 })(window, angular);
