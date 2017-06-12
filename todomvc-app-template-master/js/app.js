@@ -36,6 +36,10 @@
 		$scope.$watch('todoList', function (newVals, oldVals) {
             $scope.todoCount = $filter('filter')(newVals, {status: false}).length;
 		}, true);
+		//清除所有完成数据
+		$scope.clearCompleted = function () {
+			$scope.todoList = $filter('filter')($scope.todoList, {status: false});
+        }
 
     }]);
 
