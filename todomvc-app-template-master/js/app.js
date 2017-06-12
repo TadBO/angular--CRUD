@@ -35,6 +35,7 @@
 		$scope.todoCount = 0;
 		$scope.$watch('todoList', function (newVals, oldVals) {
             $scope.todoCount = $filter('filter')(newVals, {status: false}).length;
+            $scope.toggleTodo = !$scope.todoCount;
 		}, true);
 		//清除所有完成数据
 		$scope.clearCompleted = function () {
@@ -44,6 +45,12 @@
 		$scope.status = undefined;
 		$scope.changeTodo = function (status) {
             $scope.status = status;
+        }
+        //全选与全不选
+		$scope.toggleAll = function () {
+			$scope.todoList.forEach(function (value) {
+				value.status = !$scope.toggleTodo;
+			})
         }
     }]);
 
