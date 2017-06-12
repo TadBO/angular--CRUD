@@ -18,6 +18,11 @@
 			$scope.todoList.push({text: $scope.newTodo, status: false});
             $scope.newTodo = '';
         }
+        //删除数据
+		$scope.deleteTodo = function (todo) {
+			var index = $scope.todoList.indexOf(todo);
+			$scope.todoList.splice(index, 1);
+        }
     });
 
 })(window, angular);
