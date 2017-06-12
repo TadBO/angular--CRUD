@@ -40,7 +40,11 @@
 		$scope.clearCompleted = function () {
 			$scope.todoList = $filter('filter')($scope.todoList, {status: false});
         }
-
+		//过滤数据，统计各状态数据并更改相应样式
+		$scope.status = undefined;
+		$scope.changeTodo = function (status) {
+            $scope.status = status;
+        }
     }]);
 
 })(window, angular);
