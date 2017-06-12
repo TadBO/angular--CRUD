@@ -3,7 +3,7 @@
 
 	// Your starting point. Enjoy the ride!
 	var app = angular.module('todoApp', []);
-	app.controller('todoCtrl', function ($scope) {
+	app.controller('todoCtrl', ['$scope', '$filter', function ($scope, $filter) {
 		//确定数据为数组类型
 		$scope.todoList = [
 			{text: 'css', status: false},
@@ -31,6 +31,12 @@
         $scope.saveTodo = function () {
             $scope.editing = {};
         }
-    });
+        //未完成的数据统计
+		$scope.todoCount = 0;
+		$scope.$watch('todoList', function (newVals, oldVals) {
+            $scope.todoCount = $filter('filter')(newVals, {status: false}).length;
+		}, true);
+
+    }]);
 
 })(window, angular);
